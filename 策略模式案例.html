@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    li {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .redItem {
+        background-color: red;
+    }
+
+    .yellowItem {
+        background-color: yellow;
+    }
+
+    .greenItem {
+        background-color: green;
+    }
+</style>
+
+<body>
+    <ul id="myList">
+
+    </ul>
+</body>
+<script>
+    var list = [{
+        title: '啦啦啦啦啦',
+        type: 1
+    }, {
+        title: '哈哈哈',
+        type: 2
+    }, {
+        title: '无敌的',
+        type: 3
+    },]
+
+    let obj = {
+        1: {
+            content: '审核中',
+            className: 'yellowItem'
+        },
+        2: {
+            content: '以通过',
+            className: 'greenItem'
+        },
+        3: {
+            content: '不通过',
+            className: 'redItem'
+        }
+    }
+    var myList = document.querySelector('#myList')
+    myList.innerHTML = list.map(item => `
+           <li>
+            <div>${item.title}</div>
+            <div class="${obj[item.type].className}">${obj[item.type].content}</div>
+            </li>
+   `).join('')
+</script>
+
+</html>
